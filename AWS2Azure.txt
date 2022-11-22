@@ -1,0 +1,64 @@
+
+AWS-Azure Migration Steps using Azure Migrate Assessment & Migration Tool:
+--------------------------------------------------------------------------
+
+In AWS Console:
+
+1. Create a Source Machine with Default Size & install an App in it.
+
+2. Create a Process Machine with t3.2Xlarge & 600*2 Storage Space.
+
+3. Login & Connect to it thru remote desktop from your PC.
+
+
+In Azure Console:
+
+1. Create a RG
+
+2. Create a VNET for placing the Migrated Instance.
+
+3. Goto Azure Migrate Service & create a Project by choosing a proper Geo.
+
+4. Under Migration tools, discover the machines & create resource by choosing a proper Geo.
+
+5. Download and Copy the replication appliance software & Vault Key to the Process Machine.
+[Copying Software & installation will consume lot of time]
+
+
+In Process Machine:
+
+1. Install the replication appliance software & Vault Key in the Process Machine
+
+2. Post installation, add the Vault & configure then copy the Password shown separately.
+
+3. Then copy the agent from the below path & install the same in the Source Mac.
+[will consume some time]
+
+"C:\ProgramData\ASR\home\svsystems\pushinstallsvc\repository"
+Agent Name: Microsoft Azure Site Recovery Unified Service Agent
+
+
+In Source Machine:
+
+1. After copying the agent, install the same in Source Machine with the copied the password.
+
+
+In Azure Console:
+
+1. Go back to the console & discover the VM, then "Finalize the Registration".
+[will consume some time]
+
+2. You can able to Replicate the VM now, fill the necessary details in it.
+
+3. Start Migrating from the Migrate tool.
+[will consume lot of time]
+
+4. The VM will start to reflect in the Portal.
+
+5. Verify the details in the VM & installed application.
+
+
+
+Reference Docs:
+https://docs.microsoft.com/en-in/azure/migrate/agent-based-migration-architecture#performance-and-scaling
+
